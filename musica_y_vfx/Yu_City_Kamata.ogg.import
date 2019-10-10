@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Yu_City_Kamata.ogg-a87e4f11a50ddbd8e77dee740f7bef34.oggstr"
+
+[deps]
+
+source_file="res://musica_y_vfx/Yu_City_Kamata.ogg"
+dest_files=[ "res://.import/Yu_City_Kamata.ogg-a87e4f11a50ddbd8e77dee740f7bef34.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

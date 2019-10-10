@@ -1,0 +1,437 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://codigos/Escena_principal.gd" type="Script" id=1]
+[ext_resource path="res://escenas/laberinto_circular.tscn" type="PackedScene" id=2]
+[ext_resource path="res://escenas/Laberinto_cuadrado.tscn" type="PackedScene" id=3]
+[ext_resource path="res://escenas/Suelo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://escenas/esfera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://codigos/Camera.gd" type="Script" id=6]
+[ext_resource path="res://escenas/llave.tscn" type="PackedScene" id=7]
+[ext_resource path="res://escenas/candado.tscn" type="PackedScene" id=8]
+[ext_resource path="res://musica_y_vfx/Yu_City_Kamata.ogg" type="AudioStream" id=9]
+[ext_resource path="res://musica_y_vfx/Paintball_Theme.ogg" type="AudioStream" id=10]
+[ext_resource path="res://musica_y_vfx/powerUP.wav" type="AudioStream" id=11]
+[ext_resource path="res://musica_y_vfx/lose sound 1-2.wav" type="AudioStream" id=12]
+[ext_resource path="res://musica_y_vfx/Barge_Sting.wav" type="AudioStream" id=13]
+[ext_resource path="res://musica_y_vfx/Barge_Sting.ogg" type="AudioStream" id=14]
+[ext_resource path="res://musica_y_vfx/iniciar_click.ogg" type="AudioStream" id=15]
+[ext_resource path="res://musica_y_vfx/Conteo_sonido.wav" type="AudioStream" id=16]
+[ext_resource path="res://musica_y_vfx/Victory sound effect.wav" type="AudioStream" id=17]
+[ext_resource path="res://texturas/flecha_ui.png" type="Texture" id=18]
+[ext_resource path="res://texturas/flecha_ui_presionada.png" type="Texture" id=19]
+[ext_resource path="res://texturas/touch_transparente.png" type="Texture" id=20]
+[ext_resource path="res://typografias/Pixeltype.ttf" type="DynamicFontData" id=21]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.647059, 1, 0, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 1, 1.82982 )
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interface_UI/Game over:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 121, -200 ), Vector2( 121, 240 ), Vector2( 121, 281.91 ), Vector2( 121, 240 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interface_UI/colorfondoMuerte:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.14902, 0.14902, 0.14902, 0 ), Color( 0.14902, 0.14902, 0.14902, 0.611765 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "winner_animacion"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interface_UI/Winner_texto:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interface_UI/Winner_texto/info winner:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Interface_UI/Winner_texto:custom_colors/font_color_shadow")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Interface_UI/Winner_texto/info winner:custom_colors/font_color_shadow")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("iluminacion/WorldEnvironment:environment:background_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("iluminacion/DirectionalLight:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("personaje/Camera/luz_personaje:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 3.0 ]
+}
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 29.1946, 4.99102, 74.852 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 80
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 250
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 60
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 300
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = ExtResource( 21 )
+
+[node name="Escena_principal" type="Spatial" groups=[
+"Escena_principal",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 306.107 ],
+"_edit_vertical_guides_": [ -358.499 ]
+}
+
+[node name="iluminacion" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="iluminacion"]
+transform = Transform( 0.341853, -0.636672, -0.69122, 0.503239, -0.497161, 0.706811, -0.793654, -0.589475, 0.150442, 0, 40.884, 0 )
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="iluminacion"]
+environment = SubResource( 2 )
+
+[node name="laberintos" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="laberinto_circular" parent="laberintos" instance=ExtResource( 2 )]
+
+[node name="Laberinto_cuadrado" parent="laberintos" instance=ExtResource( 3 )]
+
+[node name="Suelo" parent="laberintos" instance=ExtResource( 4 )]
+
+[node name="personaje" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0126, 1, 20.3844 )
+
+[node name="esfera" parent="personaje" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -0.0954278, 0.995436, 0, -0.995436, -0.0954278, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="personaje"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 12, 0 )
+script = ExtResource( 6 )
+
+[node name="luz_personaje" type="SpotLight" parent="personaje/Camera" groups=[
+"luz_personaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, -1.06581e-014, 0, 1.06581e-014, 1, 0, 0, -6.61171 )
+light_energy = 0.0
+shadow_enabled = true
+shadow_color = Color( 0.882353, 0.882353, 0.882353, 1 )
+spot_range = 13.1203
+spot_angle = 59.599
+
+[node name="llave_y_candado" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="llave" parent="llave_y_candado" instance=ExtResource( 7 )]
+transform = Transform( -0.851272, 0, -0.524727, 0, 1, 0, 0.524727, 0, -0.851272, 0, 0.691, 0 )
+
+[node name="Area_candado" type="Area" parent="llave_y_candado" groups=[
+"Area_candado",
+]]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1829, 2.20931, 20.3049 )
+
+[node name="CollisionShape" type="CollisionShape" parent="llave_y_candado/Area_candado"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394165, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="posicion_inicio" type="Spatial" parent="llave_y_candado"]
+
+[node name="candado" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4843, 2.20931, 20.3049 )
+
+[node name="Timer_espera" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[node name="Timer_cuanto_falto" type="Timer" parent="."]
+
+[node name="AnimationPlayerPrincipal" type="AnimationPlayer" parent="."]
+anims/Game_over_animacion = SubResource( 4 )
+anims/winner_animacion = SubResource( 5 )
+
+[node name="animacion_mundo" type="AnimationPlayer" parent="."]
+anims/claridad_mundo = SubResource( 6 )
+
+[node name="area_winner" type="Area" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 161.788, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="area_winner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73782, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="Musica_and_sfx" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="musica_normal" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=[
+"musica_normal",
+]]
+stream = ExtResource( 9 )
+autoplay = true
+bus = "musica_normal"
+
+[node name="musica_rapida" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=[
+"musica_rapida",
+]]
+stream = ExtResource( 10 )
+bus = "musica_rapida"
+
+[node name="sfx_llave" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=[
+"sfx_llave",
+]]
+stream = ExtResource( 11 )
+bus = "sfx_llave"
+
+[node name="sfx_puerta_cerrada" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=[
+"sfx_puerta_cerrada",
+]]
+stream = ExtResource( 12 )
+bus = "sfx_puerta_cerrada"
+
+[node name="sfx_puerta_abierta" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=[
+"sfx_puerta_abierta",
+]]
+stream = ExtResource( 13 )
+bus = "sfx_puerta_abierta"
+
+[node name="sfx_puerta_abierta_2" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource( 11 )
+bus = "sfx_puerta_abierta_2"
+
+[node name="muerte_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource( 14 )
+bus = "muerte_sonido"
+
+[node name="lose_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource( 15 )
+bus = "lose_sonido"
+
+[node name="conteo_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource( 16 )
+bus = "conteo_sonido"
+
+[node name="winner_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource( 17 )
+bus = "abrio_puerta"
+
+[node name="botones_tactiles" type="Node" parent="."]
+
+[node name="touch_arriba" type="TouchScreenButton" parent="botones_tactiles"]
+position = Vector2( 132.4, 340 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+passby_press = true
+action = "touch_arriba"
+
+[node name="touch_abajo" type="TouchScreenButton" parent="botones_tactiles"]
+position = Vector2( 32.4, 580 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+passby_press = true
+action = "touch_abajo"
+
+[node name="touch_izquierda" type="TouchScreenButton" parent="botones_tactiles"]
+position = Vector2( 720, 480 )
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+passby_press = true
+action = "touch_izquierda"
+
+[node name="touch_derecha" type="TouchScreenButton" parent="botones_tactiles"]
+position = Vector2( 980, 580 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+passby_press = true
+action = "touch_derecha"
+
+[node name="iniciar_touch" type="TouchScreenButton" parent="botones_tactiles"]
+normal = ExtResource( 20 )
+passby_press = true
+action = "iniciar_touch"
+
+[node name="Interface_UI" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="tiempo_espera" type="Label" parent="Interface_UI"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.0
+margin_right = 270.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Tiempo de espera: 120"
+
+[node name="colorfondoMuerte" type="ColorRect" parent="Interface_UI"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.14902, 0.14902, 0.14902, 0 )
+
+[node name="Game over" type="Label" parent="Interface_UI"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -391.0
+margin_top = -500.0
+margin_right = 392.0
+margin_bottom = -176.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Game over
+"
+
+[node name="Label" type="Label" parent="Interface_UI/Game over"]
+margin_left = 9.0
+margin_top = 137.0
+margin_right = 761.0
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Presione Click o la pantalla para reiniciar"
+
+[node name="Winner_texto" type="Label" parent="Interface_UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.5
+margin_top = -94.5
+margin_right = 301.5
+margin_bottom = 94.5
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Winner"
+
+[node name="info winner" type="Label" parent="Interface_UI/Winner_texto"]
+margin_left = -89.5
+margin_top = 154.5
+margin_right = 779.5
+margin_bottom = 221.5
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Terminaste el juego muchas gracias por probarlo"
+[connection signal="body_entered" from="llave_y_candado/llave" to="." method="_on_llave_body_entered"]
+[connection signal="body_entered" from="llave_y_candado/Area_candado" to="." method="_on_Area_candado_body_entered"]
+[connection signal="timeout" from="Timer_espera" to="." method="_on_Timer_espera_timeout"]
+[connection signal="timeout" from="Timer_cuanto_falto" to="." method="_on_Timer_cuanto_falto_timeout"]
+[connection signal="body_entered" from="area_winner" to="." method="_on_area_winner_body_entered"]

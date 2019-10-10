@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Paintball_Theme.ogg-c2704b04ff8dc647327389051b5e0180.oggstr"
+
+[deps]
+
+source_file="res://musica_y_vfx/Paintball_Theme.ogg"
+dest_files=[ "res://.import/Paintball_Theme.ogg-c2704b04ff8dc647327389051b5e0180.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

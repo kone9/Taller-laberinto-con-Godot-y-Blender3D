@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://codigos/Menu_principal.gd" type="Script" id=1]
+[ext_resource path="res://texturas/touch_transparente.png" type="Texture" id=2]
+[ext_resource path="res://texturas/portada.jpg" type="Texture" id=3]
+[ext_resource path="res://typografias/A-Space Black Demo.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 57
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "texto_animado"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.835294, 0.835294, 0.835294, 1 ), Color( 0.580392, 0.615686, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.835294, 0.835294, 0.835294, 1 ) ]
+}
+
+[node name="Menu_principal" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="iniciar_touch" type="TouchScreenButton" parent="."]
+normal = ExtResource( 2 )
+action = "iniciar_touch"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.89 )
+current = true
+far = 2669.7
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 515, 300 )
+scale = Vector2( 0.536458, 0.555556 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = 220.0
+margin_right = 1225.0
+margin_bottom = 401.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.79281, 0.798693, 0.862745, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Presione click o el centro
+ de la pantalla para iniciar"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "texto_animado"
+anims/texto_animado = SubResource( 2 )

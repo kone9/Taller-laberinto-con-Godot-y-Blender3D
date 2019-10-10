@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Conteo_sonido.wav-5d8bd8e7e52db5ad4652dee72e6efa24.sample"
+
+[deps]
+
+source_file="res://musica_y_vfx/Conteo_sonido.wav"
+dest_files=[ "res://.import/Conteo_sonido.wav-5d8bd8e7e52db5ad4652dee72e6efa24.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

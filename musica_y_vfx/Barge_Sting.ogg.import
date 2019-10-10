@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Barge_Sting.ogg-f4ebc47c4618b934863f46b3e8661f8e.oggstr"
+
+[deps]
+
+source_file="res://musica_y_vfx/Barge_Sting.ogg"
+dest_files=[ "res://.import/Barge_Sting.ogg-f4ebc47c4618b934863f46b3e8661f8e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
